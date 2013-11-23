@@ -11,7 +11,7 @@ class UUTDNS
     hex_value.upcase
   end
 
-  def header
+  def header(type = :standard)
     header = ''
 
     # Set id
@@ -25,7 +25,7 @@ class UUTDNS
     # Set the header Opcode
     # 0 for standard query
     # 1 for inverse query
-    case $type
+    case type
     when :standard
       header << "0000"
     when :inverse
