@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 require 'optparse'
 require 'uutdns'
+require 'socket'
 
 $type = :standard
 $ip
@@ -37,6 +38,22 @@ OptionParser.new do |opts|
 end.parse!
 
 dns = UUTDNS.new
-msg = dns.header($type) + dns.question($domain)
+dns_msg = ''
 
-p msg
+case $type
+when :standard
+  dns_msg = dns.header($type) + dns.question($domain)
+when :inverse
+  puts "Inverse lookup not implemented yet."
+end
+
+ds = UDPSocket.new(:INET)
+ds.connect($server, $port)
+ds.send(dns_msg, 0)
+response, address = ds.recvfrom(1024)
+
+puts "The DNS header for the domain \"#{$domain}\" is: " + dns.header
+puts "The DNS question part for the domain \"#{$domain}\" is: " + dns.question
+
+puts "The server response is:"
+puts response
