@@ -1,29 +1,13 @@
 # Uutdns
 
-TODO: Write a gem description
+A simple DNS client built by Aref Aslani at Urmia University of Technology
 
 ## Installation
 
-Add this line to your application's Gemfile:
+All you need to do is
 
-    gem 'uutdns'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install uutdns
+    gem install 'uutdns'
 
 ## Usage
 
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+Run "uutdns --help" for usage information

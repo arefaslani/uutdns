@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["arefaslani@gmail.com"]
   spec.description   = %q{Simple DNS Client built for Internet Engineering course in Urmia University of Technology}
   spec.summary       = %q{Simple DNS Client}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/arefaslani/uutdns"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
