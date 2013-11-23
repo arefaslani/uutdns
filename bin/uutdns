@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require 'optparse'
+require 'uutdns'
 
 $type = :standard
 $ip
@@ -22,3 +23,8 @@ OptionParser.new do |opts|
     $domain = domain
   end
 end.parse!
+
+dns = UUTDNS.new
+msg = dns.header($type) + dns.question($domain)
+
+p msg

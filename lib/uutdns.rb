@@ -71,7 +71,7 @@ class UUTDNS
     bin_to_hex(header)
   end
 
-  def get_question(domain_name)
+  def question(domain_name)
     question = ''
     question_parts = domain_name.split('.')
 
