@@ -1,1 +1,24 @@
 #!/usr/bin/env ruby
+require 'optparse'
+
+$type = :standard
+$ip
+$domain
+
+# Parse command line optoions
+OptionParser.new do |opts|
+  opts.banner = "A simple DNS client built in Ruby written by Aref Aslani"
+  opts.separator "options:"
+
+  opts.on("--ip IP",
+          "Gets the IP address as argument and returns domain name") do |ip|
+    $type = :inverse
+    $ip = ip
+  end
+
+  opts.on("--domain DOMAIN",
+          "Gets the DOMAIN as argument and returens the IP address") do |domain|
+    $type = :standard
+    $domain = domain
+  end
+end.parse!
