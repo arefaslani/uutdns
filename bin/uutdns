@@ -45,6 +45,7 @@ when :standard
   dns_msg = dns.header($type) + dns.question($domain)
 when :inverse
   puts "Inverse lookup not implemented yet."
+  exit
 end
 
 ds = UDPSocket.new(:INET)
