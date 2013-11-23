@@ -5,6 +5,8 @@ require 'uutdns'
 $type = :standard
 $ip
 $domain
+$server = "127.0.0.1"
+$port = 53
 
 # Parse command line optoions
 OptionParser.new do |opts|
@@ -21,6 +23,16 @@ OptionParser.new do |opts|
           "Gets the DOMAIN as argument and returens the IP address") do |domain|
     $type = :standard
     $domain = domain
+  end
+
+  opts.on("--server SERVER",
+          "Gets DNS server ip address(default value is 127.0.0.1)") do |server|
+    $server = server
+  end
+
+  opts.on("--port PORT",
+          "Gets DNS server port number(default value is 53)") do |port|
+    $port = port
   end
 end.parse!
 
