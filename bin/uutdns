@@ -53,8 +53,8 @@ ds.connect($server, $port)
 ds.send(dns_msg, 0)
 response, address = ds.recvfrom(1024)
 
-puts "The DNS header for the domain \"#{$domain}\" is: " + dns.header
-puts "The DNS question part for the domain \"#{$domain}\" is: " + dns.question
+puts "The DNS header for the domain \"#{$domain}\" is: " + dns.header($type)
+puts "The DNS question part for the domain \"#{$domain}\" is: " + dns.question($domain)
 
 puts "The server response is:"
-puts response
+p response
