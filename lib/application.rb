@@ -52,7 +52,13 @@ class Application
     ds = UDPSocket.new(:INET)
     ds.connect($server, $port)
     ds.send(dns_msg, 0)
-    response, address = ds.recvfrom(1024)
+    
+    begin
+      response, address = ds.recvfrom(1024)
+    rescue Errno::ECONNREFUSED
+      puts "Connection refused by the server."
+      exit
+    end
 
     puts "The DNS header for the domain \"#{$domain}\" is: " + dns.header($type)
     puts "The DNS question part for the domain \"#{$domain}\" is: " + dns.question($domain)
